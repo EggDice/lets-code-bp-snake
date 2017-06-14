@@ -36,11 +36,3 @@ test(t => {
   game.tick()
 })
 
-test(t => {
-  const game = gameFactory(() => {})
-  const expected = {
-    WIDTH: 30,
-    HEIGHT: 20
-  }
-  t.deepEqual(game.getConfig(), expected)
-})

@@ -1,5 +1,7 @@
 'use strict'
 
+import {config} from './config.js'
+
 export function moveSnake({direction, body}) {
   const head = movePoint(body[0], direction)
   return Object.freeze({
@@ -9,6 +11,6 @@ export function moveSnake({direction, body}) {
 }
 
 function movePoint([x, y], direction) {
-  return [x + 1, y]
+  return [(x + 1) % config.SIZE[0], y]
 }
 

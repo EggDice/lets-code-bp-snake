@@ -1,11 +1,9 @@
 'use strict'
 
 import {moveSnake} from './snake.js'
+import {config} from './config.js'
 
 export default function gameFactory(draw) {
-  const WIDTH = 30
-  const HEIGHT = 20
-
   let snake = {
     direction: 'right',
     body: [
@@ -23,10 +21,7 @@ export default function gameFactory(draw) {
   }
 
   function getConfig() {
-    return {
-      WIDTH,
-      HEIGHT
-    }
+    return config
   }
 
   return Object.freeze({
