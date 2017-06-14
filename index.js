@@ -3,4 +3,8 @@
 const canvas = document.querySelector('.game-canvas')
 const context = canvas.getContext('2d')
 
-context.fillRect(10, 10, 100, 100)
+for (let i = 0; i < 4; i++) {
+ context.fillRect(i * 20 + 2, 2, 16, 16)
+}
+
+
