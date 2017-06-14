@@ -24,3 +24,15 @@ const game = gameFactory((snakePoints) => {
 
 setInterval(game.tick, 200)
 
+const KEY_CODE_TO_DIRECTION = {
+  '37': 'left',
+  '38': 'top',
+  '39': 'right',
+  '40': 'bottom'
+}
+
+document.body.addEventListener('keydown', event => {
+  if (event.keyCode >= 37 && event.keyCode <= 40) {
+    game.onArrowEvent(KEY_CODE_TO_DIRECTION[event.keyCode])
+  }
+})

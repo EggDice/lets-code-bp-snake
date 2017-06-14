@@ -1,6 +1,6 @@
 'use strict'
 
-import {moveSnake} from './snake.js'
+import {moveSnake, turnSnake} from './snake.js'
 import {config} from './config.js'
 
 export default function gameFactory(draw) {
@@ -20,13 +20,14 @@ export default function gameFactory(draw) {
     draw(snake.body)
   }
 
-  function getConfig() {
-    return config
+  function onArrowEvent(dir) {
+    snake = turnSnake(snake, dir)
   }
 
   return Object.freeze({
     getSnake,
     tick,
-    getConfig
+    onArrowEvent
   })
 }
+

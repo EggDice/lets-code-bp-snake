@@ -36,3 +36,14 @@ test(t => {
   game.tick()
 })
 
+test(t => {
+  const game = gameFactory((snakePoints) => {
+    const expected = [
+      [3, 1], [3, 0], [2, 0], [1, 0]
+    ]
+    t.deepEqual(snakePoints, expected)
+  })
+  game.onArrowEvent('bottom')
+  game.tick()
+})
+
