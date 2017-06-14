@@ -29,9 +29,9 @@ export default function gameFactory(draw) {
     }
   }
 
-  return {
+  return Object.freeze({
     getSnake,
     tick,
     getConfig
-  }
+  })
 }
