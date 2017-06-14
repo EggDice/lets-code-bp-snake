@@ -1,0 +1,25 @@
+{
+  "name": "snake-game",
+  "version": "1.0.0",
+  "description": "A simple JavaScript implementation of the Snake game",
+  "main": "index.js",
+  "scripts": {
+    "start": "http-server .",
+    "test": "ava *.spec.js"
+  },
+  "author": "Tamas Kokeny <tamas.kokeny.87@gmail.com>",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "ava": "^0.19.1",
+    "babel-plugin-transform-es2015-modules-umd": "^6.24.1",
+    "babel-preset-es2017": "^6.24.1",
+    "babel-preset-stage-3": "^6.24.1",
+    "http-server": "^0.10.0"
+  },
+  "ava": {
+    "babel": "inherit",
+    "require": [
+      "babel-register"
+    ]
+  }
+}
