@@ -1,22 +1,27 @@
 'use strict'
 
-import {moveSnake} from './snake.js'
+import gameFactory from './game.js'
+
+const TILE_SIZE = 20
+const TILE_PADDING = 2
+const CANVAS_WIDTH = 600
+const CANVAS_HEIGHT = 400
 
 const canvas = document.querySelector('.game-canvas')
 const context = canvas.getContext('2d')
 
-let snake = {
-  direction: 'right',
-  body: [
-    [3, 0], [2, 0], [1, 0], [0, 0]
-  ]
-}
-
-setInterval(() => {
-  context.clearRect(0, 0, 600, 400);
-  snake.body.forEach(([x, y]) => {
-    context.fillRect(x * 20 + 2, y * 20 + 2, 16, 16)
+const game = gameFactory((snakePoints) => {
+  context.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+  snakePoints.forEach(([x, y]) => {
+    const drawnTileSize = TILE_SIZE - 2 * TILE_PADDING; 
+    context.fillRect(
+      x * TILE_SIZE + TILE_PADDING,
+      y * TILE_SIZE + TILE_PADDING,
+      drawnTileSize,
+      drawnTileSize
+    )
   })
-  snake = moveSnake(snake)
-}, 200)
+})
+
+setInterval(game.tick, 200)
 
